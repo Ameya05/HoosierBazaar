@@ -4,26 +4,33 @@
 $servername = "localhost";
 $username = "root";
 $password = "test";
-//this file merely creates the db
+$dbname = "myDB";
+
 // Create connection
-$conn = mysqli_connect($servername, $username, $password);
-
+$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-echo "Connected success";
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
 
 
+$name=$_GET["name"];
+$pwd=$_GET["pwd"];
 
-// Create database
-$sql = "CREATE DATABASE myDB";
-if ($conn->query($sql) === TRUE) {
-    echo "Database created successfully";
-} else {
-    echo "Error creating database: " . $conn->error;
-}
 
+$query = "SELECT * FROM Users WHERE name = '$name' and  pwd = '$pwd' ";
+
+ if ($result=mysqli_query($conn,$query))
+  {
+   if(mysqli_num_rows($result) > 0)
+    {
+      echo "Exists";
+    }
+  else
+      echo "Doesn't exist";
+  }
+else
+    echo "Query Failed.";
 
 
 

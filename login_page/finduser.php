@@ -11,8 +11,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$name = "Rahul";
-$pwd = "password";
+//$name = "Rahul";
+//$pwd = "password1";
 
 
 $query = "SELECT * FROM Users WHERE name = '$name' and  pwd = '$pwd' ";

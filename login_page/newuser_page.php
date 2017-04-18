@@ -11,19 +11,18 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-// sql to create table
-$sql = "CREATE TABLE Users (
-name VARCHAR(30) NOT NULL PRIMARY KEY,
-pwd VARCHAR(30) NOT NULL,
-email VARCHAR(50),
-status VARCHAR(20),
-reg_date TIMESTAMP
-)";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Table Users created successfully";
+$name = $_GET["name"];
+$pwd = $_GET["pwd"];
+$email = $_GET["email"];
+
+$sql = "INSERT INTO Users (name, pwd, email, status)
+VALUES ('$name', '$pwd', '$email', 'User');";
+
+if ($conn->multi_query($sql) === TRUE) {
+    echo "New record created successfully";
 } else {
-    echo "Error creating table: " . $conn->error;
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();

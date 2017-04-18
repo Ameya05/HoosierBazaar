@@ -6,8 +6,8 @@
 
 
 function validateForm() {
-    var x = document.forms["loginform"]["name"].value;
-    var y = document.forms["loginform"]["pwd"].value;
+    var x = document.forms["newuserform"]["name"].value;
+    var y = document.forms["newuserform"]["pwd"].value;
     if (x == "") {
         alert("userame must be filled out");
         return false;
@@ -34,16 +34,17 @@ function validateForm() {
 
 <body>
 
-<form name="loginform" action="test.php" method="get" onsubmit="return validateForm()" align="center">
+<form name="newuserform" action="newuser_page.php" method="get" onsubmit="return validateForm()" align="center">
   User Name:<br>
   <input type="text" name="name" value="username">
   <br>
   Password:<br>
   <input type="text" name="pwd" value="password">
+  <br>
+  Email:<br>
+  <input type="text" name="email" value="email">
   <br><br>
   <input type="submit" value="Submit">
-  <br>
-  <a href="newuser.html">New user click here!</a>
 </form> 
 </body>
 </html>
