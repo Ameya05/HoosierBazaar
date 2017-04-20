@@ -1,5 +1,3 @@
-
-
 <?php
 $servername = "localhost";
 $username = "root";
@@ -14,8 +12,8 @@ if ($conn->connect_error) {
 } 
 
 
-$name=$_GET["name"];
-$pwd=$_GET["pwd"];
+$name=$_POST["name"];
+$pwd=$_POST["pwd"];
 
 
 $query = "SELECT * FROM Users WHERE name = '$name' and  pwd = '$pwd' ";

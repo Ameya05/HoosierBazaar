@@ -1,49 +1,57 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script>
+        function validateForm()
+        {
+            var x = document.forms["loginform"]["name"].value;
+            var y = document.forms["loginform"]["pwd"].value;
+            if (x == "") {
+                alert("userame must be filled out");
+                return false;
+            }
+            if (x.length < 3) {
+                alert("username should be more than 3 letters");
+                return false;
+            }
+            if (y == "") {
+                alert("please enter your password");
+                return false;
+            }
+            if (y.length < 6) {
+                alert("password should contain atleast 6 characters");
+                return false;
+            }
 
-<script>
-
-
-
-function validateForm() {
-    var x = document.forms["loginform"]["name"].value;
-    var y = document.forms["loginform"]["pwd"].value;
-    if (x == "") {
-        alert("userame must be filled out");
-        return false;
-    }
-    if (x.length < 3) {
-    	alert("username should be more than 3 letters");
-    	return false;
-    }
-    if (y == "") {
-    	alert("please enter your password");
-    	return false;
-    }
-    if (y.length < 6) {
-    	alert("password should contain atleast 6 characters");
-    	return false;
-    }
-
-}
-</script>
-
-
-
-
-
-<body>
-
-<form name="loginform" action="test.php" method="get" onsubmit="return validateForm()" align="center">
-  User Name:<br>
-  <input type="text" name="name" value="username">
-  <br>
-  Password:<br>
-  <input type="text" name="pwd" value="password">
-  <br><br>
-  <input type="submit" value="Submit">
-  <br>
-  <a href="newuser.html">New user click here!</a>
-</form> 
+        }
+    </script>
+</head>
+<body style="background-color: #990000; color: #EEEDEB">
+    <div class="container">
+        <form name="loginform" class="form-signin" method="post" onsubmit="return validateForm()" action="test.php">
+            <div class="form-group row col-2">
+                <div class="col-2">
+                    <h1 class="form-signin-heading text-muted">Sign In</h1>
+                </div>
+            </div>
+            <div class="form-group row col-2">
+                <div class="col-2">
+                    <input type="text" name="name" placeholder="User" class="form-control" required="" autofocus="">
+                </div>
+            </div>
+            <div class="form-group row col-2">
+                <div class="col-2">
+                    <input type="password" name="pwd" placeholder="Password" class="form-control" required="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
