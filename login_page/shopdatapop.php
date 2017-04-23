@@ -15,14 +15,16 @@ if ($conn->connect_error) {
 $sql = "CREATE TABLE Product (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 name VARCHAR(100) NOT NULL,
-size INT(6) NOT NULL,
+size VARCHAR(6) NOT NULL,
 price INT(6) NOT NULL,
-store_id INT(6) NOT NULL,
-is_discounted INT(1) DEFAULT 0,
+store_name VARCHAR(100) NOT NULL,
+is_discounted VARCHAR(10) DEFAULT 0,
 link VARCHAR(500),
 category VARCHAR(20),
 description VARCHAR(1000),
 brand VARCHAR(20),
+img_loc VARCHAR(1000),
+
 reg_date TIMESTAMP
 )";
 
