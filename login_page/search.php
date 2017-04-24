@@ -25,6 +25,11 @@ if ($conn->connect_error) {
 
 $query = "SELECT * FROM product WHERE '1' = '1' ";
 
+if(isset($_GET["name"])){
+  $name = $_GET["name"];
+
+  $query = $query."and name like '%$name%' ";
+}
 if(isset($_GET["size"])){
   $size = $_GET["size"];
   $query = $query."and size = '$size' ";
@@ -49,9 +54,6 @@ if (isset($_GET["brand"])) {
   $store_name = $_GET["store_name"];
   $query = $query."and store_name = '$store_name' ";
 }
-
-
-
 
 //$query = $query. "name = '$name' and  pwd = '$pwd'";
 
