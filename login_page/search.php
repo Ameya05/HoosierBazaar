@@ -24,12 +24,12 @@ if ($conn->connect_error) {
 #$store_name = 'TIS Bookstore';
 
 $query = "SELECT * FROM product WHERE '1' = '1' ";
-
+/*
 if(isset($_GET["name"])){
   $name = $_GET["name"];
 
   $query = $query."and name like '%$name%' ";
-}
+}*/
 if(isset($_GET["size"])){
   $size = $_GET["size"];
   $query = $query."and size = '$size' ";
@@ -64,6 +64,22 @@ if (isset($_GET["brand"])) {
       echo "Exists";
       #$row = $result->fetch_assoc();
       #echo "<br> name: ". $row["name"]. " - Password: ". $row["pwd"]. " ";
+      /*
+      $sth = mysqli_query("SELECT ...");
+      $rows = array();
+      while($r = mysqli_fetch_assoc($sth)) {
+        $rows[] = $r;
+        */
+      $rows = array();
+      while($r = mysqli_fetch_assoc($result)) {
+        $rows[] = $r;
+      echo "json_encode($rows);";
+
+}
+print json_encode($rows);
+
+
+
     }
   else
       echo "Doesn't exist";
