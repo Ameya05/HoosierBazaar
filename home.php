@@ -90,14 +90,14 @@ if(isset($_COOKIE['role'])) {
             <li data-target="#carousel1" data-slide-to="2" class=""> </li>
           </ol>
           <div class="carousel-inner">
-            <div class="item"> <img class="img-responsive" src="images/museum.jpg" alt="thumb">
-              <div class="carousel-caption"> Carousel caption 1. Here goes slide description. Lorem ipsum dolor set amet. </div>
+            <div class="item"> <img class="img-responsive" src="images/museum.jpg" alt="museum">
+              <div class="carousel-caption"></div>
             </div>
-            <div class="item active"> <img class="img-responsive" src="images/iubackground.gif" alt="thumb">
-              <div class="carousel-caption"> </div>
+            <div class="item active"> <img class="img-responsive" src="images/iubackground.gif" alt="iubackground">
+              <div class="carousel-caption"></div>
             </div>
-            <div class="item"> <img class="img-responsive" src="images/SampleGates.jpg" alt="thumb">
-              <div class="carousel-caption"> Carousel caption 3. Here goes slide description. Lorem ipsum dolor set amet. </div>
+            <div class="item"> <img class="img-responsive" src="images/basketball.jpg" alt="basketball">
+              <div class="carousel-caption"></div>
             </div>
           </div>
           <a class="left carousel-control" href="#carousel1" data-slide="prev"><span class="icon-prev"></span></a> <a class="right carousel-control" href="#carousel1" data-slide="next"><span class="icon-next"></span></a></div>
@@ -108,7 +108,6 @@ if(isset($_COOKIE['role'])) {
   <center>
 <div class="container">
     <div class="form-inline">
-      <!--input type="text" class="form-control" placeholder="Search"-->
       <button type="button" onclick="location.href='search.php';" class="btn btn-primary">Search Merchandise</button>
     </div>
 </div>
