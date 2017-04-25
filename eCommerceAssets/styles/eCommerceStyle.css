@@ -18,8 +18,8 @@ header {
 	padding-bottom: 10px;
 	width: 139px;
 	text-align: center;
-	color: rgba(255,255,255,1.00);
-	background-color: rgba(190,190,190,1.00);
+	color: #EEEDEB;
+	background-color: #990000;
 }
 /* div for Links in header */
 #headerLinks {
@@ -28,7 +28,8 @@ header {
 	text-align: right;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	background-color: rgba(255,255,255,1.00);
+	color: #EEEDEB;
+	background-color: #990000;
 }
 /* Links in header */
 #headerLinks a {
@@ -65,6 +66,8 @@ header {
 	background-color: rgba(246,246,246,1.00);
 	padding-top: 36px;
 	height: 784px;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
 }
 /* main content of the site */
 #content .mainContent {
@@ -72,6 +75,8 @@ header {
 	width: 70%;
 	text-align: center;
 	padding-left: 4%;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
 }
 /*menubar's properties for menus in sidebar */
 #content .sidebar #menubar {
@@ -99,15 +104,17 @@ header {
 /*menu elements */
 .menu ul li {
 	list-style-type: none;
-	font-size: x-large;
+	font-size: small;
 	position: relative;
 	left: -35px;
-	padding-top: 12px;
+	padding-top: 0px;
 }
 /* Product rows for catalog */
 #content .mainContent .productRow {
 	overflow: auto;
-	color: rgba(146,146,146,1.00);
+	/*color: rgba(146,146,146,1.00);*/
+	background-color: #EEEDEB;
+	color: black;
 }
 /* Each product Information in the catalog */
 .mainContent .productRow .productInfo {
@@ -115,24 +122,24 @@ header {
 	padding-left: 5%;
 	padding-right: 5%;
 	width: 22%;
+	box-sizing: content-box;
 }
 /* Prices of a products in catalog */
 .productRow .productInfo .price {
 	font-family: 'Montserrat', sans-serif;
-	color: rgba(146,146,146,1.00);
-	font-size: 22px;
+	/*color: rgba(146,146,146,1.00);*/
+	color: black;
+	font-size: 14px;
 	position: relative;
-	top: -20px;
 }
 /* Content holder for products in catalog*/
 .productRow .productInfo .productContent {
 	position: relative;
-	top: -37px;
-	font-size: 14px;
+	font-size: 22px;
 	font-family: source-sans-pro, sans-serif;
 	font-style: normal;
 	font-weight: 200;
-	color: rgba(146,146,146,1.00);
+	color: black;
 	white-space: pre-wrap;
 }
 /* Buy button for products in catalog */
@@ -226,6 +233,8 @@ footer .footerlinks {
 }
 /* horizontal separators in sidebar */
 #content .sidebar hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
 	display: none;
 }
 /*The sidebar and maincontent of page */
@@ -381,6 +390,7 @@ header #headerLinks a {
 	padding-right: 0px;
 	position: relative;
 	left: -2%;
+	box-sizing: content-box;
 }
 #mainWrapper footer div {
 	width: 100%;
