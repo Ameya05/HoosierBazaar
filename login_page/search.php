@@ -23,37 +23,118 @@ if ($conn->connect_error) {
 #$is_discounted = 'Yes';
 #$store_name = 'TIS Bookstore';
 
-$query = "SELECT * FROM product WHERE '1' = '1' ";
-/*
-if(isset($_GET["name"])){
+$count=0;
+
+$query = "SELECT * FROM product WHERE";
+
+if(isset($_GET["name"]) && $_GET["name"] != ''){
+  if ($count>0) {
+  # code...
+  $query = $query." and";
+  $count = $count + 1;
+}
   $name = $_GET["name"];
 
-  $query = $query."and name like '%$name%' ";
-}*/
-if(isset($_GET["size"])){
+  $query = $query." name like '%$name%' ";
+  $count = $count + 1;
+}
+
+
+if(isset($_GET["size"]) && $_GET["size"] != '' ){
+  if ($count>0) {
+  # code...
+  $query = $query." and";
+  $count = $count + 1;
+}
+  #echo "size";
   $size = $_GET["size"];
-  $query = $query."and size = '$size' ";
+  $query = $query." size = '$size' ";
+  $count = $count + 1;
 }
-if (isset($_GET["brand"])) {
+
+
+if (isset($_GET["brand"]) && $_GET["brand"] != '') {
+  if ($count>0) {
   # code...
-  $brand = $_GET["brand"];
-  $query = $query."and brand = '$brand' ";
+  $query = $query." and";
+  $count = $count + 1;
 }
-if (isset($_GET["category"])) {
+  #echo "brand";
+  $brand = $_GET['brand'];
+  $query = $query." brand = '$brand' ";
+  $count = $count + 1;
+}
+
+
+if (isset($_GET["category"]) && $_GET["category"] != '') {
+  if ($count>0) {
   # code...
+  $query = $query." and";
+  $count = $count + 1;
+}
+  # code...
+  #echo "category";
   $category = $_GET["category"];
-  $query = $query."and category = '$category' ";
+  //echo "$category";
+  $query = $query." category = '$category' ";
+  $count = $count + 1;
 }
-if (isset($_GET["is_discounted"])) {
+
+if (isset($_GET["is_discounted"]) && $_GET["is_discounted"] != '') {
+  if ($count>0) {
   # code...
+  $query = $query." and";
+  $count = $count + 1;
+}
+  # code...
+  #echo "discount";
   $is_discounted = $_GET["is_discounted"];
-  $query = $query."and is_discounted = '$is_discounted' ";
+  $query = $query." is_discounted = '$is_discounted' ";
+  $count = $count + 1;
 }
-if (isset($_GET["brand"])) {
+
+if (isset($_GET["store_name"]) && $_GET["store_name"] != '') {
+  if ($count>0) {
   # code...
-  $store_name = $_GET["store_name"];
-  $query = $query."and store_name = '$store_name' ";
+  $query = $query." and";
+  $count = $count + 1;
 }
+  # code...
+  #echo "store_name";
+  $store_name = $_GET["store_name"];
+  $query = $query." store_name = '$store_name' ";
+  $count = $count + 1;
+}
+
+
+if (isset($_GET["price_max"]) && $_GET["price_max"] != '') {
+  if ($count>0) {
+  # code...
+  $query = $query." and";
+  $count = $count + 1;
+}
+  # code...
+  #echo "store_name";
+  $price_max = $_GET["price_max"];
+  $query = $query." price <= '$price_max' ";
+  $count = $count + 1;
+}
+
+
+if (isset($_GET["price_min"]) && $_GET["price_min"] != '') {
+  if ($count>0) {
+  # code...
+  $query = $query." and";
+  $count = $count + 1;
+}
+  # code...
+  #echo "store_name";
+  $price_min = $_GET["price_min"];
+  $query = $query." price >= '$price_min' ";
+  $count = $count + 1;
+}
+
+
 
 //$query = $query. "name = '$name' and  pwd = '$pwd'";
 
@@ -61,7 +142,7 @@ if (isset($_GET["brand"])) {
   {
    if(mysqli_num_rows($result) > 0)
     {
-      echo "Exists";
+      #echo "Exists";
       #$row = $result->fetch_assoc();
       #echo "<br> name: ". $row["name"]. " - Password: ". $row["pwd"]. " ";
       /*
