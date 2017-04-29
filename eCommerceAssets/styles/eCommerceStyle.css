@@ -106,9 +106,14 @@ header {
 	list-style-type: none;
 	font-size: small;
 	position: relative;
-	left: -35px;
+	left: 0px;
 	padding-top: 0px;
 }
+
+#menu {
+	border-radius: 3px;
+}
+
 /* Product rows for catalog */
 #content .mainContent .productRow {
 	overflow: auto;
