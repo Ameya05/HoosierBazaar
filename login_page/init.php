@@ -2,13 +2,14 @@
 $servername = "localhost";
 $username = "root";
 $password = "test";
+
 //this file merely creates the db
 // Create connection
 $conn = mysqli_connect($servername, $username, $password);
 
 // Check connection
 if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    die("Connection failed test1: " . mysqli_connect_error());
 }
 echo "Connected success";
 
@@ -27,7 +28,7 @@ $dbname = "myDB";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed : " . $conn->connect_error);
 } 
 
 // sql to create table
@@ -41,6 +42,20 @@ reg_date TIMESTAMP
 
 if ($conn->query($sql) === TRUE) {
     echo "Table Users created successfully";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+
+// sql to feedback table
+$sql = "CREATE TABLE Feedback (
+id int(8) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+message VARCHAR(255)
+)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Table Feedback created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
 }
