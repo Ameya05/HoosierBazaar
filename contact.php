@@ -15,6 +15,9 @@
   $username = "root";
   $password = "test";
   $db_name = "myDB";
+    $errName = "";
+    $errEmail = "";
+    $errMessage = "";
 
   if (isset($_POST["submit"])) 
   {
@@ -39,10 +42,10 @@
     }
 
   // If there are no errors, send the email
-    if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
+    if (!$errName && !$errEmail && !$errMessage) {
 
       // Create connection
-      $conn = new mysqli($servername, $username, $password, $dbname);
+      $conn = new mysqli($servername, $username, $password, $db_name);
 
       // Check connection
       if ($conn->connect_error) {
@@ -50,11 +53,11 @@
       } 
       else{
         
-        $sql = "INSERT INTO myDB.Feedback (name, email, message) VALUES ('$name', '$email', '$message');";
+        $sql = "INSERT INTO myDB.Feedback (username, email, message) VALUES ('$name', '$email', '$message');";
 
         if ($conn->query($sql) === TRUE) {
-          //echo "Feedback submitted successfully";
-          $_POST = array(); 
+          $_POST = array();
+          $success = true;
         } 
         /*else {
           echo "Unable to submit feedback: " . $conn->error;
@@ -101,6 +104,11 @@
                 ?>
                 <li><a href="#">My Bookmarks</a></li>
                 <?php
+                if(isset($role) && (strcmp($role, 'Admin') == 0) )
+                { ?>
+                    <li><a href="feedback.php">View Feedback</a></li>
+                    <?php
+                }
             }
             ?>
         </ul>
@@ -133,21 +141,30 @@
         <div class="form-group">
           <label for="name" class="col-sm-2 control-label">Name</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" value="<?php echo htmlspecialchars($_POST['name']); ?>">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" value="<?php
+                if( isset($_POST['name']) )
+                    echo htmlspecialchars($_POST['name']);
+                ?>">
             <?php echo "<p class='text-danger'>$errName</p>";?>
           </div>
         </div>
         <div class="form-group">
           <label for="email" class="col-sm-2 control-label">Email</label>
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($_POST['email']); ?>">
+            <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php
+            if( isset($_POST['email']) )
+                echo htmlspecialchars($_POST['email']);
+            ?>">
             <?php echo "<p class='text-danger'>$errEmail</p>";?>
           </div>
         </div>
         <div class="form-group">
           <label for="message" class="col-sm-2 control-label">Message</label>
           <div class="col-sm-10">
-            <textarea class="form-control" rows="4" name="message"><?php echo htmlspecialchars($_POST['message']);?></textarea>
+            <textarea class="form-control" rows="4" name="message"><?php
+                if( isset($_POST['message']) )
+                    echo htmlspecialchars($_POST['message']);
+                ?></textarea>
             <?php echo "<p class='text-danger'>$errMessage</p>";?>
           </div>
         </div>
@@ -160,7 +177,10 @@
         <!--
         <div class="form-group">
           <div class="col-sm-10 col-sm-offset-2">
-            <?php echo $result; ?>  
+            <?php
+                if (isset($success))
+                    echo "Your message has been received!";
+                ?>
           </div>
         </div>
       </form> -->

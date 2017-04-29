@@ -55,7 +55,7 @@ if(isset($_COOKIE['role'])) {
           }
           if(isset($role) && (strcmp($role, 'Admin') == 0) )
           { ?>
-              <li><a href="#">View Feedback</a></li>
+              <li><a href="feedback.php">View Feedback</a></li>
           <?php
           } ?>
       </ul>

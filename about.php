@@ -54,6 +54,11 @@ a{
             ?>
             <li><a href="#">My Bookmarks</a></li>
             <?php
+            if(isset($role) && (strcmp($role, 'Admin') == 0) )
+            { ?>
+                <li><a href="feedback.php">View Feedback</a></li>
+                <?php
+            }
         }
         ?>
       </ul>

@@ -49,7 +49,7 @@ if ($conn->query($sql) === TRUE) {
 // sql to feedback table
 $sql = "CREATE TABLE Feedback (
 id int(8) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(30) NOT NULL,
+username VARCHAR(30) NOT NULL,
 email VARCHAR(50),
 message VARCHAR(255)
 )";

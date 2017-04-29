@@ -63,6 +63,12 @@ if(isset($_COOKIE['role'])) {
       {
           ?>
           <a href="#">My Bookmarks</a>
+          <?php
+          if(isset($role) && (strcmp($role, 'Admin') == 0) )
+          { ?>
+          <a href="feedback.php">View Feedback</a>
+          <?php
+      } ?>
           <a href="login_page/logout.php?redirect_url=<?php echo $_SERVER['PHP_SELF']; ?>">Logout</a>
           <a class="nav-right" href="#">Welcome <?php echo $name; ?>!</a>
           <?php
