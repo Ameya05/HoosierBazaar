@@ -9,10 +9,11 @@ $(document).ready(function() {
 
 			  	$.each(obj, function(key,value) {
 				  	counter = (counter+1)%3;
-				  	htmlToAppend += "<article class=productInfo style=cursor:pointer; onclick=window.open('"+value.link+"','_blank');>";
-				  	htmlToAppend += "<div><img style=height:200px;width:200px; alt=sample src=images/"+ value.img_loc +"></div>";
-				  	htmlToAppend += "<p class=price>"+value.name+"</p>";
-				  	htmlToAppend += "<p class=productContent>$"+value.price+"</p>";
+                    htmlToAppend += "<article class=productInfo>";
+                    htmlToAppend += "<div style=cursor:pointer; onclick=window.open('"+value.link+"','_blank')><img style=height:200px;width:200px; alt=sample src=images/"+ value.img_loc +"></div>";
+                    htmlToAppend += "<p style=cursor:pointer; onclick=window.open('"+value.link+"','_blank') class=price>"+value.name+"</p>";
+                    htmlToAppend += "<p class=productContent>$"+value.price+"</p>";
+                    htmlToAppend += "<p style=cursor:pointer; class=save-button onclick='saveBookmark("+value.id+");'>Save Bookmark</p>";
 				  	htmlToAppend += "</article>";
 				  	if(counter==0)
 				  	{
@@ -42,10 +43,11 @@ $(document).ready(function() {
 
 			  	$.each(obj, function(key,value) {
 				  	counter = (counter+1)%3;
-				  	htmlToAppend += "<article class=productInfo style=cursor:pointer; onclick=window.open('"+value.link+"','_blank');>";
-				  	htmlToAppend += "<div><img style=height:200px;width:200px; alt=sample src=images/"+ value.img_loc +"></div>";
-				  	htmlToAppend += "<p class=price>"+value.name+"</p>";
-				  	htmlToAppend += "<p class=productContent>$"+value.price+"</p>";
+                    htmlToAppend += "<article class=productInfo>";
+                    htmlToAppend += "<div style=cursor:pointer; onclick=window.open('"+value.link+"','_blank')><img style=height:200px;width:200px; alt=sample src=images/"+ value.img_loc +"></div>";
+                    htmlToAppend += "<p style=cursor:pointer; onclick=window.open('"+value.link+"','_blank') class=price>"+value.name+"</p>";
+                    htmlToAppend += "<p class=productContent>$"+value.price+"</p>";
+                    htmlToAppend += "<p style=cursor:pointer; class=save-button onclick='saveBookmark("+value.id+");'>Save Bookmark</p>";
 				  	htmlToAppend += "</article>";
 				  	if(counter==0)
 				  	{
@@ -74,10 +76,11 @@ $(document).ready(function() {
 
 			  	$.each(obj, function(key,value) {
 				  	counter = (counter+1)%3;
-				  	htmlToAppend += "<article class=productInfo style=cursor:pointer; onclick=window.open('"+value.link+"','_blank');>";
-				  	htmlToAppend += "<div><img style=height:200px;width:200px; alt=sample src=images/"+ value.img_loc +"></div>";
-				  	htmlToAppend += "<p class=price>"+value.name+"</p>";
+				  	htmlToAppend += "<article class=productInfo>";
+				  	htmlToAppend += "<div style=cursor:pointer; onclick=window.open('"+value.link+"','_blank')><img style=height:200px;width:200px; alt=sample src=images/"+ value.img_loc +"></div>";
+				  	htmlToAppend += "<p style=cursor:pointer; onclick=window.open('"+value.link+"','_blank') class=price>"+value.name+"</p>";
 				  	htmlToAppend += "<p class=productContent>$"+value.price+"</p>";
+                    htmlToAppend += "<p style=cursor:pointer; class=save-button onclick='saveBookmark("+value.id+");'>Save Bookmark</p>";
 				  	htmlToAppend += "</article>";
 				  	if(counter==0)
 				  	{
@@ -106,10 +109,11 @@ $(document).ready(function() {
 
                 $.each(obj, function(key,value) {
                     counter = (counter+1)%3;
-                    htmlToAppend += "<article class=productInfo style=cursor:pointer; onclick=window.open('"+value.link+"','_blank');>";
-                    htmlToAppend += "<div><img style=height:200px;width:200px; alt=sample src=images/"+ value.img_loc +"></div>";
-                    htmlToAppend += "<p class=price>"+value.name+"</p>";
+                    htmlToAppend += "<article class=productInfo>";
+                    htmlToAppend += "<div style=cursor:pointer; onclick=window.open('"+value.link+"','_blank')><img style=height:200px;width:200px; alt=sample src=images/"+ value.img_loc +"></div>";
+                    htmlToAppend += "<p style=cursor:pointer; onclick=window.open('"+value.link+"','_blank') class=price>"+value.name+"</p>";
                     htmlToAppend += "<p class=productContent>$"+value.price+"</p>";
+                    htmlToAppend += "<p style=cursor:pointer; class=save-button onclick='saveBookmark("+value.id+");'>Save Bookmark</p>";
                     htmlToAppend += "</article>";
                     if(counter==0)
                     {
@@ -137,10 +141,11 @@ $(document).ready(function() {
 
                 $.each(obj, function(key,value) {
                     counter = (counter+1)%3;
-                    htmlToAppend += "<article class=productInfo style=cursor:pointer; onclick=window.open('"+value.link+"','_blank');>";
-                    htmlToAppend += "<div><img style=height:200px;width:200px; alt=sample src=images/"+ value.img_loc +"></div>";
-                    htmlToAppend += "<p class=price>"+value.name+"</p>";
+                    htmlToAppend += "<article class=productInfo>";
+                    htmlToAppend += "<div style=cursor:pointer; onclick=window.open('"+value.link+"','_blank')><img style=height:200px;width:200px; alt=sample src=images/"+ value.img_loc +"></div>";
+                    htmlToAppend += "<p style=cursor:pointer; onclick=window.open('"+value.link+"','_blank') class=price>"+value.name+"</p>";
                     htmlToAppend += "<p class=productContent>$"+value.price+"</p>";
+                    htmlToAppend += "<p style=cursor:pointer; class=save-button onclick='saveBookmark("+value.id+");'>Save Bookmark</p>";
                     htmlToAppend += "</article>";
                     if(counter==0)
                     {

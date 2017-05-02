@@ -166,7 +166,7 @@ if ($conn->connect_error) {
 
 // sql to create table
 $sql = "CREATE TABLE Bookmarks (
-name VARCHAR(30) NOT NULL PRIMARY KEY,
+username VARCHAR(30) NOT NULL,
 pid INT(30) NOT NULL
 )";
 

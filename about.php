@@ -52,7 +52,7 @@ a{
         if(isset($name))
         {
             ?>
-            <li><a href="#">My Bookmarks</a></li>
+            <li><a href="viewBookmarks.php">My Bookmarks</a></li>
             <?php
             if(isset($role) && (strcmp($role, 'Admin') == 0) )
             { ?>

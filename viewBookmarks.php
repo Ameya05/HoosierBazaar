@@ -6,6 +6,9 @@
   if(isset($_COOKIE[$cookie_name])) {
       $name = $_COOKIE[$cookie_name];
   }
+  else{
+      header("Location: login_page/login.php");
+  }
 
   if(isset($_COOKIE['role'])) {
       $role = $_COOKIE['role'];
@@ -26,7 +29,7 @@
   }
   else {
 
-      $sql = "Select username, email, message from myDB.Feedback order by id DESC;";
+      $sql = "Select p.*  from myDB.bookmarks b, myDB.product p where b.pid = p.id and b.username = '$name';";
 
       if ($result=mysqli_query($conn,$sql))
       {
@@ -47,26 +50,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <title>Contact</title>
+      <title>Your Bookmarks</title>
       <link rel="stylesheet" href="css/bootstrap.css">
       <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
       <link rel="stylesheet" href="css/contact.css">
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script type="text/javascript" src="js/bookmark.js"></script>
     <style type="text/css">
         a{
           color: #EEEDEB;
         }
-        #feedback{
+        #bookmark{
             color: black;
         }
-        #feedback>thead>tr{
+        #bookmark>thead>tr{
             background-color: #999896;
         }
-        #feedback>tbody>tr{
+        #bookmark>tbody>tr{
             border-radius: 4px;
             background-color: #EEEDEB;
+        }
+        #bookmark>tbody>tr>td>a{
+            color: black;
         }
     </style>
 
@@ -121,17 +128,17 @@
   </nav>
 
   <div class="container">
-      <table id="feedback" class="table table-bordered">
+      <table id="bookmark" class="table table-bordered">
           <?php
           if( sizeof($rows) > 0)
           {
               ?>
-              <caption>Feedback</caption>
+              <caption>Your Bookmarks</caption>
               <thead>
                   <tr>
-                    <th>User</th>
-                    <th>Email</th>
-                    <th>Feedback</th>
+                      <th>Product</th>
+                      <th>Image</th>
+                      <th>Actions</th>
                   </tr>
               </thead>
               <tbody>
@@ -140,29 +147,29 @@
                   ?>
                   <tr>
                       <td>
-                          <?php echo $row['username']; ?>
+                          <a href="<?php echo $row['link']; ?>" target="_blank"><?php echo $row['name']; ?></a>
                       </td>
                       <td>
-                          <?php echo $row['email']; ?>
+                          <img style="height: 200px; width: 200px;" src="images/<?php echo $row['img_loc']; ?>">
                       </td>
                       <td>
-                          <?php echo $row['message']; ?>
+                          <button data-custom-value="<?php echo $row['id']; ?>" data-name-value="<?php if(isset($_COOKIE[$cookie_name])) {
+                              echo $name;
+                          }?>" type="button" class="btn btn-danger delete-button">Delete</button>
                       </td>
                   </tr>
               <?php
               }
               ?> </tbody> <?php
-
           }
           else
           { ?>
-              <caption>No Feedback to see!!</caption>
+              <caption>You do not have any bookmarks!!</caption>
           <?php
           }
           ?>
       </table>
   </div>
-
   <br>
   <footer class="text-center my-footer">
     <div class="container">

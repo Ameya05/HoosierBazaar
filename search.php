@@ -25,6 +25,7 @@ if(isset($_COOKIE['role'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="js/search.js"></script>
+      <script type="text/javascript" src="js/bookmark.js"></script>
     <script>
       $( function() {
           $( ".accordion" ).accordion({
@@ -62,7 +63,7 @@ if(isset($_COOKIE['role'])) {
       if(isset($name))
       {
           ?>
-          <a href="#">My Bookmarks</a>
+          <a href="viewBookmarks.php">My Bookmarks</a>
           <?php
           if(isset($role) && (strcmp($role, 'Admin') == 0) )
           { ?>

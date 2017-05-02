@@ -18,7 +18,7 @@ if(isset($_COOKIE['role'])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap eCommerce Template</title>
+    <title>HoosierBazaar</title>
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -50,7 +50,7 @@ if(isset($_COOKIE['role'])) {
           <?php
           if(isset($name))
           { ?>
-              <li><a href="#">My Bookmarks</a></li>
+              <li><a href="viewBookmarks.php">My Bookmarks</a></li>
               <?php
           }
           if(isset($role) && (strcmp($role, 'Admin') == 0) )
