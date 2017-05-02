@@ -1,50 +1,54 @@
 <!DOCTYPE html>
 <html>
-
-<script>
-
-
-
-function validateForm() {
-    var x = document.forms["newuserform"]["name"].value;
-    var y = document.forms["newuserform"]["pwd"].value;
-    if (x == "") {
-        alert("userame must be filled out");
-        return false;
-    }
-    if (x.length < 3) {
-    	alert("username should be more than 3 letters");
-    	return false;
-    }
-    if (y == "") {
-    	alert("please enter your password");
-    	return false;
-    }
-    if (y.length < 6) {
-    	alert("password should contain atleast 6 characters");
-    	return false;
-    }
-
-}
-</script>
+<head>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+	<script>
 
 
 
+		function validateForm() {
+			var x = document.forms["newuserform"]["name"].value;
+			var y = document.forms["newuserform"]["pwd"].value;
+			if (x == "") {
+				alert("userame must be filled out");
+				return false;
+			}
+			if (x.length < 3) {
+				alert("username should be more than 3 letters");
+				return false;
+			}
+			if (y == "") {
+				alert("please enter your password");
+				return false;
+			}
+			if (y.length < 6) {
+				alert("password should contain atleast 6 characters");
+				return false;
+			}
+
+		}
+	</script>
+</head>
 
 
-<body>
 
-<form name="newuserform" action="newuser_page.php" method="get" onsubmit="return validateForm()" align="center">
-  User Name:<br>
-  <input type="text" name="name" value="username">
-  <br>
-  Password:<br>
-  <input type="text" name="pwd" value="password">
-  <br>
-  Email:<br>
-  <input type="text" name="email" value="email">
-  <br><br>
-  <input type="submit" value="Submit">
-</form> 
+
+
+<body style="background-color: #990000; color: #EEEDEB">
+	<div class="container">
+		<form name="newuserform" action="newuser_page.php" method="get" onsubmit="return validateForm()" align="center" >
+		  User Name:<br>
+		  <input type="text" name="name" value="username">
+		  <br>
+		  Password:<br>
+		  <input type="text" name="pwd" value="password">
+		  <br>
+		  Email:<br>
+		  <input type="text" name="email" value="email">
+		  <br><br>
+		  <input type="submit" value="Submit">
+		</form> 
+	</div>
 </body>
 </html>

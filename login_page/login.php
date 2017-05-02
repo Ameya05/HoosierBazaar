@@ -50,6 +50,6 @@ $conn->close();
 if ($login_succeeded)
     header("Location: ../home.php");
 else
-    header("Location: login.html?error=LoginFailure");
+    header("Location: loginerror.html");
 
 ?>
