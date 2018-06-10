@@ -29,7 +29,7 @@
   }
   else {
 
-      $sql = "Select p.*  from myDB.bookmarks b, myDB.product p where b.pid = p.id and b.username = '$name';";
+      $sql = "Select p.*  from myDB.Bookmarks b, myDB.product p where b.pid = p.id and b.username = '$name';";
 
       if ($result=mysqli_query($conn,$sql))
       {

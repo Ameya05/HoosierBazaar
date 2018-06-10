@@ -16,7 +16,7 @@
   }
   else {
 
-      $sql = "Delete from myDB.bookmarks where pid=".$pid." and username='$name';";
+      $sql = "Delete from myDB.Bookmarks where pid=".$pid." and username='$name';";
 
       echo $sql;
       if (mysqli_query($conn,$sql) == true)

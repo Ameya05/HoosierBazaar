@@ -54,8 +54,7 @@ if(isset($_COOKIE['role'])) {
   <body>
     <div id="mainWrapper">
       <header>
-        <div id="logo" onclick="location.href('home.php','_blank')">
-          HoosierBazaar </div>
+        <a id="logo" href="home.php"> HoosierBazaar </a>
           <div id="headerLinks">
               <a href="about.php">About Us</a>
               <a href="contact.php">Contact Us</a>
@@ -92,12 +91,6 @@ if(isset($_COOKIE['role'])) {
                 </ul>
             </nav-->
             <nav class="menu size-menu">
-                <h3>Category</h3>
-                <ul id="menu">
-                    <li><div>Shirts</div></li>
-                    <li><div>Jackets</div></li>
-                    <li><div>Polos</div></li>
-                </ul>
                 <h3>Filters</h3>
                 <div class="accordion">
                     <h3>Size</h3>

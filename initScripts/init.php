@@ -131,10 +131,10 @@ if ($conn->connect_error) {
 } 
 
 $sql = "INSERT INTO product (name, size, price, store_name , is_discounted, link, category, description, brand, img_loc)
-VALUES ('Mens Columbia Crimson Indiana Hoosiers Flanker Full Zip Fleece Jacket', 'S' , '55.24' , 'TIS Bookstore' , 'Yes' , 'http://www.indianauniversitystore.com/Indiana_Hoosiers_Mens_Jackets/Mens_Columbia_Crimson_Indiana_Hoosiers_Flanker_Full_Zip_Fleece_Jacket' , 'Jackets' , 'You can be found at every Indiana game, cheering on the Hoosiers, irregardless of the weather. When Mother Nature makes it breezy and cold, show off your team pride in style in this Flanker jacket from Columbia. This fleece jacket features an embroidered Indiana logo on the left chest, an Olympic collar, two front pockets, and a bungee cord on the bottom that’s designed to keep you extra cool. Do not risk missing a game due to being sick; when it gets a bit chilly, throw on this festive jacket and cheer on the Hoosiers to victory.' , 'Columbia' , '../images/products/1.jpg' );";
+VALUES ('Mens Columbia Crimson Indiana Hoosiers Flanker Full Zip Fleece Jacket', 'L' , '55.24' , 'TIS Bookstore' , 'Yes' , 'http://www.indianauniversitystore.com/Indiana_Hoosiers_Mens_Jackets/Mens_Columbia_Crimson_Indiana_Hoosiers_Flanker_Full_Zip_Fleece_Jacket' , 'Jackets' , 'You can be found at every Indiana game, cheering on the Hoosiers, irregardless of the weather. When Mother Nature makes it breezy and cold, show off your team pride in style in this Flanker jacket from Columbia. This fleece jacket features an embroidered Indiana logo on the left chest, an Olympic collar, two front pockets, and a bungee cord on the bottom that’s designed to keep you extra cool. Do not risk missing a game due to being sick; when it gets a bit chilly, throw on this festive jacket and cheer on the Hoosiers to victory.' , 'Columbia' , '../images/products/1.jpg' );";
 
 $sql .= "INSERT INTO product (name, size, price, store_name , is_discounted, link, category, description, brand , img_loc)
-VALUES ('Womens Antigua Crimson Indiana Hoosiers Pique Xtra-Lite Polo', 'S', '35.69' , 'TIS Bookstore' , 'Yes' , 'http://www.indianauniversitystore.com/Indiana_Hoosiers_Ladies_Polos/Womens_Antigua_Crimson_Indiana_Hoosiers_Pique_Xtra-Lite_Polo' ,'Polos', 'Celebrate your love for the Indiana Hoosiers with this Antigua Pique Xtra-Lite polo!' , 'Antigua', '../images/products/1.jpg' );";
+VALUES ('Womens Antigua Crimson Indiana Hoosiers Pique Xtra-Lite Polo', 'L', '35.69' , 'TIS Bookstore' , 'Yes' , 'http://www.indianauniversitystore.com/Indiana_Hoosiers_Ladies_Polos/Womens_Antigua_Crimson_Indiana_Hoosiers_Pique_Xtra-Lite_Polo' ,'Polos', 'Celebrate your love for the Indiana Hoosiers with this Antigua Pique Xtra-Lite polo!' , 'Antigua', '../images/products/1.jpg' );";
 
 $sql .= "INSERT INTO product (name, size, price, store_name , is_discounted, link, category, description, brand , img_loc)
 VALUES ('Adidas Indiana Hoosiers Infant Girls Turtleneck Cheer Dress - Crimson' , 'S' , '29.74' , 'TIS Bookstore' , 'Yes' , 'http://www.indianauniversitystore.com/Indiana_Hoosiers_Kids_Skirts_And_Dresses/adidas_Indiana_Hoosiers_Infant_Girls_Turtleneck_Cheer_Dress_-_Crimson' , 'Skirts and Dresses' , ' ' , 'Adidas', '../images/products/1.jpg');";
@@ -174,25 +174,6 @@ if ($conn->query($sql) === TRUE) {
     echo "Table bookmark created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
-}
-
-$conn->close();
-
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "INSERT INTO Bookmarks (name, pid)
-VALUES ('jay', '1');";
-
-if ($conn->multi_query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();

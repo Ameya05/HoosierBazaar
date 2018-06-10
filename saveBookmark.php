@@ -22,11 +22,15 @@
   }
   else {
 
-      $sql = "Insert into myDB.bookmarks (username, pid ) VALUES ('$name', '$pid')";
+      $sql = "Insert into myDB.Bookmarks (username, pid ) VALUES ('$name', '$pid');";
 
-      if ($result=mysqli_query($conn,$sql))
-      {
-
+      if ($conn->query($sql) === TRUE) {
+          echo "Bookmark Saved!";
+      } else {
+          echo "Error saving Bookmark: " . $conn->error;
       }
   }
+
+  $conn->close();
+
 ?>

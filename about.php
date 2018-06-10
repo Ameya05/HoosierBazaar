@@ -73,7 +73,7 @@ a{
           }
           else{
               ?>
-              <li><a href="login_page/login.php">Login / Register</a> </li>
+              <li><a href="login_page/login.html">Login / Register</a> </li>
               <?php
           }
           ?>
